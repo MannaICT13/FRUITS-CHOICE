@@ -12,16 +12,29 @@ struct PlayContentView: View {
     
     
     
-    @State private var fruitsList = ["Apricot","Avocado","Banana","Blackberry","Blackcurrent",
-         "Bluberries","Breadfruit","Cantaloupe","Carambola","Cherries","Cranberries","DragonFruit","Feijoa","Fig","Gooseberries","Grapefruit","Grapes","Guava","Honeydewmelon","Jackfruit","Javplum","Jujube","Kiwi","Kumquat","Lemon","Longan","Loquat","Lychee","Mandarin","Mango","Mangosteen","Mulberries","Nactarine","Olives","Orange","","Papaya","Passionfruit","Peach","Pear","Pineapple","Plums","Pomegranate","Roseapple","Soursop","Strawberries","Sugarapple","Tamarind","Tangerine","Watermelon"
-    ]
+    @State private var fruitsList = ["Apricot","Avocado","Banana","Blackberry","Blackcurrant",
+         "Blueberries","Breadfruit","Cantaloupe","Carambola","Cherries","Cranberries",
+    "DragonFruit","Feijoa","Fig","Gooseberries","Grapefruit","Grapes","Guava",
+    "Honeydewmelon","Jackfruit","Javplum","Jujube","Kiwi","Kumquat","Lemon","Longan",
+    "Loquat","Lychee","Mandarin","Mango","Mangosteen","Mulberries","Olives","Orange",
+"Papaya","Passionfruit","Peach","Pear","Pineapple","Plums","Pomegranate","Roseapple",
+"Soursop","Strawberries","Sugarapple","Tamarind","Tangerine","Watermelon"
+    
+        ].shuffled()
     
 
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var isShowingTab = true
     @State private var isShowingFruitsName = true
+    @State private var isShowingFruitsImage = true
     @State private var isShowingGameOver = false
     @State private var isShowingPlayAgain = false
+    @State private var isShowingTotalScore = false
+    @State private var alertTitle = ""
+    @State private var alertMessage = " Your score is :"
+    @State private var isAlertShow = false
+    @State private var scoreCount = 0
+    @State private var askQuestionCount = 0
     
     
     
@@ -30,6 +43,7 @@ struct PlayContentView: View {
     
     
     var body: some View {
+        
     
             ZStack{
                 
@@ -50,7 +64,14 @@ struct PlayContentView: View {
                     
                 }
                 
-                
+                if isShowingTotalScore{
+                    Text("Total Score:\(scoreCount)")
+                        .font(.headline)
+                }else{
+                     Text("Total Score:\(scoreCount)")
+                    .font(.headline)
+                    .hidden()
+                }
                 
                 if isShowingFruitsName{
                     Text("\(fruitsList[correctAnswer])")
@@ -103,24 +124,44 @@ struct PlayContentView: View {
                 
             VStack(spacing : 5){
                     
-                
+                if self.isShowingFruitsImage {
+                    
                     ForEach(0..<3){ number in
-                        
-                        Button(action: {
-                            
-                        }, label: {
-                            
-                            Image(self.fruitsList[number])
-                                .renderingMode(.original)
-                            .resizable()
-                            .frame(width: 120, height: 120)
-                        })
-                        
-                    }
+                                          
+                                          Button(action: {
+                                              self.fruitsTab(number)
+                                              
+                                          }, label: {
+                                              
+                                              Image(self.fruitsList[number])
+                                                  .renderingMode(.original)
+                                              .resizable()
+                                              .frame(width: 120, height: 120)
+                                          })
+                                          
+                                      }
+                }else{
                     
-                    
-                    
+                    ForEach(0..<3){ number in
+                                          
+                                          Button(action: {
+                                              self.fruitsTab(number)
+                                              
+                                          }, label: {
+                                              
+                                              Image(self.fruitsList[number])
+                                                  .renderingMode(.original)
+                                              .resizable()
+                                              .frame(width: 120, height: 120)
+                                          })
+                                          
+                    }.hidden()
                 }
+                  
+                    
+                    
+                    
+                    }
                 
                 Spacer()
                 
@@ -130,9 +171,62 @@ struct PlayContentView: View {
             
         }
         
-    }
+    }.alert(isPresented: $isAlertShow, content: {
+      
+        Alert(title: Text(alertTitle), message: Text("\(alertMessage)\(scoreCount)"), dismissButton: .default(Text("Continue"), action: {
+            
+            self.askQuestion()
+            
+        }))
+    })
+        
+        
+        
         
     }
+    
+    func fruitsTab(_ number: Int){
+        
+        if number == correctAnswer{
+            
+            alertTitle = "Right"
+            scoreCount = scoreCount + 5
+            
+        }else{
+            alertTitle = "Wrong"
+        }
+        
+        isAlertShow = true
+        
+    }
+    
+    
+    
+    func askQuestion() {
+        
+        askQuestionCount = askQuestionCount + 1
+        
+        if askQuestionCount == 5 {
+            
+            isShowingFruitsName = false
+            isShowingTab = false
+            isShowingFruitsImage = false
+            isShowingGameOver = true
+            isShowingPlayAgain = true
+            isShowingTotalScore =  true
+            
+        }else{
+
+            self.fruitsList.shuffle()
+            correctAnswer = Int.random(in: 0...2)
+        }
+        
+        
+        
+    }
+    
+    
+    
     
 }
 
