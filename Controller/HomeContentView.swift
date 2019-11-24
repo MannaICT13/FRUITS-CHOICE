@@ -13,6 +13,8 @@ struct HomeContentView: View {
     
     var body: some View {
         
+        NavigationView{
+        
         
         ZStack{
         
@@ -25,9 +27,9 @@ struct HomeContentView: View {
     
         VStack(spacing : 10){
             
-            Button(action: {
-                
-            }, label: {
+           
+            
+            NavigationLink(destination: PlayContentView(), label: {
                 
                 Text("Play").font(.largeTitle).foregroundColor(Color.white)
             })
@@ -59,14 +61,15 @@ struct HomeContentView: View {
                   .cornerRadius(20)
           }
         
+            
         }
         
         
         
-        
         }
         
         
+    }
 }
 
 struct HomeContentView_Previews: PreviewProvider {
