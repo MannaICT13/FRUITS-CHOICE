@@ -79,6 +79,9 @@
 		2A3618A0238A8B3F002BC121 = {
 			isa = PBXGroup;
 			children = (
+				2A3618DE238A8B6B002BC121 /* Model */,
+				2A3618DD238A8B66002BC121 /* View */,
+				2A3618DC238A8B5F002BC121 /* Controller */,
 				2A3618AB238A8B3F002BC121 /* FRUITS CHOICE */,
 				2A3618C2238A8B43002BC121 /* FRUITS CHOICETests */,
 				2A3618CD238A8B43002BC121 /* FRUITS CHOICEUITests */,
@@ -99,11 +102,7 @@
 		2A3618AB238A8B3F002BC121 /* FRUITS CHOICE */ = {
 			isa = PBXGroup;
 			children = (
-				2A3618AC238A8B3F002BC121 /* AppDelegate.swift */,
-				2A3618AE238A8B3F002BC121 /* SceneDelegate.swift */,
-				2A3618B0238A8B3F002BC121 /* ContentView.swift */,
 				2A3618B2238A8B43002BC121 /* Assets.xcassets */,
-				2A3618B7238A8B43002BC121 /* LaunchScreen.storyboard */,
 				2A3618BA238A8B43002BC121 /* Info.plist */,
 				2A3618B4238A8B43002BC121 /* Preview Content */,
 			);
@@ -134,6 +133,31 @@
 				2A3618D0238A8B43002BC121 /* Info.plist */,
 			);
 			path = "FRUITS CHOICEUITests";
+			sourceTree = "<group>";
+		};
+		2A3618DC238A8B5F002BC121 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2A3618B0238A8B3F002BC121 /* ContentView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		2A3618DD238A8B66002BC121 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2A3618B7238A8B43002BC121 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2A3618DE238A8B6B002BC121 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2A3618AE238A8B3F002BC121 /* SceneDelegate.swift */,
+				2A3618AC238A8B3F002BC121 /* AppDelegate.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
