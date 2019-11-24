@@ -11,17 +11,7 @@ import SwiftUI
 struct PlayContentView: View {
     
     
-    
-    @State private var fruitsList = ["Apricot","Avocado","Banana","Blackberry","Blackcurrant",
-         "Blueberries","Breadfruit","Cantaloupe","Carambola","Cherries","Cranberries",
-    "DragonFruit","Feijoa","Fig","Gooseberries","Grapefruit","Grapes","Guava",
-    "Honeydewmelon","Jackfruit","Javplum","Jujube","Kiwi","Kumquat","Lemon","Longan",
-    "Loquat","Lychee","Mandarin","Mango","Mangosteen","Mulberries","Olives","Orange",
-"Papaya","Passionfruit","Peach","Pear","Pineapple","Plums","Pomegranate","Roseapple",
-"Soursop","Strawberries","Sugarapple","Tamarind","Tangerine","Watermelon"
-    
-        ].shuffled()
-    
+    @State private var fruitsList = ConstantStruct.fruitsList.shuffled()
 
     @State private var correctAnswer = Int.random(in: 0...2)
     @State private var isShowingTab = true
@@ -31,7 +21,7 @@ struct PlayContentView: View {
     @State private var isShowingPlayAgain = false
     @State private var isShowingTotalScore = false
     @State private var alertTitle = ""
-    @State private var alertMessage = " Your score is :"
+    @State private var alertMessage = ConstantStruct.alertMessageConstant
     @State private var isAlertShow = false
     @State private var scoreCount = 0
     @State private var askQuestionCount = 0
@@ -54,21 +44,21 @@ struct PlayContentView: View {
             VStack(spacing: 5){
                 
                 if isShowingTab{
-                    Text("Tab The Fruits")
+                    Text(ConstantStruct.isShowingConstant)
                         .font(.headline)
                 }else{
                     
-                     Text("Tab The Fruits")
+                    Text(ConstantStruct.isShowingConstant)
                         .font(.headline)
                     .hidden()
                     
                 }
                 
                 if isShowingTotalScore{
-                    Text("Total Score:\(scoreCount)")
+                    Text("\(ConstantStruct.isShowingTotalScoreConstant)\(scoreCount)")
                         .font(.headline)
                 }else{
-                     Text("Total Score:\(scoreCount)")
+                    Text("\(ConstantStruct.isShowingTotalScoreConstant))\(scoreCount)")
                     .font(.headline)
                     .hidden()
                 }
@@ -84,10 +74,10 @@ struct PlayContentView: View {
                 
                 
                 if isShowingGameOver{
-                    Text("GAME OVR")
+                    Text(ConstantStruct.isShowingGameOverContant)
                          .font(.largeTitle)
                 }else{
-                    Text("GAME OVR")
+                    Text(ConstantStruct.isShowingGameOverContant)
                          .font(.largeTitle)
                     .hidden()
                 }
@@ -97,14 +87,14 @@ struct PlayContentView: View {
                     
                     NavigationLink(destination: PlayContentView(), label: {
                                      
-                                     Text("PLAY AGAIN")
+                        Text(ConstantStruct.playAgainContant)
                                      .navigationBarBackButtonHidden(true)
                                  })
                                  
                 }else{
                     NavigationLink(destination: PlayContentView(), label: {
                                      
-                                     Text("PLAY AGAIN")
+                        Text(ConstantStruct.playAgainContant)
                                      .navigationBarBackButtonHidden(true)
                         }).hidden()
                                  
@@ -173,7 +163,7 @@ struct PlayContentView: View {
         
     }.alert(isPresented: $isAlertShow, content: {
       
-        Alert(title: Text(alertTitle), message: Text("\(alertMessage)\(scoreCount)"), dismissButton: .default(Text("Continue"), action: {
+        Alert(title: Text(alertTitle), message: Text("\(alertMessage)\(scoreCount)"), dismissButton: .default(Text(ConstantStruct.continueConstant), action: {
             
             self.askQuestion()
             
@@ -189,11 +179,11 @@ struct PlayContentView: View {
         
         if number == correctAnswer{
             
-            alertTitle = "Right"
+            alertTitle = ConstantStruct.rightContant
             scoreCount = scoreCount + 5
             
         }else{
-            alertTitle = "Wrong"
+            alertTitle = ConstantStruct.wrongConstant
         }
         
         isAlertShow = true

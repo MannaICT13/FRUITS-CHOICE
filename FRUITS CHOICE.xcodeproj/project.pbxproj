@@ -17,6 +17,7 @@
 		2A3618CF238A8B43002BC121 /* FRUITS_CHOICEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3618CE238A8B43002BC121 /* FRUITS_CHOICEUITests.swift */; };
 		2A3618E6238A93C1002BC121 /* HomeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3618E5238A93C1002BC121 /* HomeContentView.swift */; };
 		2A3618E8238AA319002BC121 /* PlayContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3618E7238AA319002BC121 /* PlayContentView.swift */; };
+		2A3618EC238B0DE1002BC121 /* ConstantStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3618EB238B0DE1002BC121 /* ConstantStruct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		2A3618D0238A8B43002BC121 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A3618E5238A93C1002BC121 /* HomeContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContentView.swift; sourceTree = "<group>"; };
 		2A3618E7238AA319002BC121 /* PlayContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayContentView.swift; sourceTree = "<group>"; };
+		2A3618EB238B0DE1002BC121 /* ConstantStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantStruct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		2A3618DE238A8B6B002BC121 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A3618EB238B0DE1002BC121 /* ConstantStruct.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				2A3618AD238A8B3F002BC121 /* AppDelegate.swift in Sources */,
 				2A3618AF238A8B3F002BC121 /* SceneDelegate.swift in Sources */,
+				2A3618EC238B0DE1002BC121 /* ConstantStruct.swift in Sources */,
 				2A3618B1238A8B3F002BC121 /* ContentView.swift in Sources */,
 				2A3618E8238AA319002BC121 /* PlayContentView.swift in Sources */,
 				2A3618E6238A93C1002BC121 /* HomeContentView.swift in Sources */,
