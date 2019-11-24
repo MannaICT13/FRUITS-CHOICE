@@ -32,6 +32,7 @@ struct HomeContentView: View {
             NavigationLink(destination: PlayContentView(), label: {
                 
                 Text("Play").font(.largeTitle).foregroundColor(Color.white)
+               
             })
                 .frame(width: 220, height: 60)
                 .background(Color.purple)
