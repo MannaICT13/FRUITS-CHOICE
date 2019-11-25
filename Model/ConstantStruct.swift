@@ -20,6 +20,8 @@ struct ConstantStruct {
     static let rightContant : String = "Right"
     static let wrongConstant : String = "Wrong"
     
+    
+    
     static var fruitsList = ["Apricot","Avocado","Banana","Blackberry","Blackcurrant",
     "Blueberries","Breadfruit","Cantaloupe","Carambola","Cherries","Cranberries",
     "DragonFruit","Feijoa","Fig","Gooseberries","Grapefruit","Grapes","Guava",

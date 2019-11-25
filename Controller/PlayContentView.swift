@@ -175,6 +175,9 @@ struct PlayContentView: View {
         
     }
     
+    
+    
+    
     func fruitsTab(_ number: Int){
         
         if number == correctAnswer{
@@ -189,6 +192,13 @@ struct PlayContentView: View {
         isAlertShow = true
         
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -219,6 +229,10 @@ struct PlayContentView: View {
     
     
 }
+
+
+
+
 
 struct PlayContentView_Previews: PreviewProvider {
     static var previews: some View {
